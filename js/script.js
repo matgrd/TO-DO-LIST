@@ -10,19 +10,9 @@
     },
   ];
 
-  const render = () => {
-    let htmlString = "";
-
-    for (const task of tasks) {
-      htmlString += `
-          <li ${task.done ? 'style="text-decoration: line-through"' : ""}>
-            ${task.content}
-          </li>
-        `;
-    }
-
-    const toDoList = document.querySelector(".js-toDoList");
-    toDoList.innerHTML = htmlString;
+  const removeTask = (index) => {
+    tasks.splice(index, 1);
+    render();
   };
 
   const addNewTask = (newTaskContent) => {
@@ -30,6 +20,30 @@
       content: newTaskContent,
     });
     render();
+  };
+
+  const render = () => {
+    let htmlString = "";
+
+    for (const task of tasks) {
+      htmlString += `
+          <li ${task.done ? 'style="text-decoration: line-through"' : ""}>
+          <button class="js-remove">Usuń zadanie</button>  
+          ${task.content}
+          </li>
+        `;
+    }
+
+    const toDoList = document.querySelector(".js-toDoList");
+    toDoList.innerHTML = htmlString;
+
+    const removeButton = document.querySelectorAll(".js-remove");
+
+    removeButton.forEach((removeButton, index) => {
+      removeButton.addEventListener("click", () => {
+        removeTask(index);
+      });
+    });
   };
 
   const onFormSubmit = (event) => {
