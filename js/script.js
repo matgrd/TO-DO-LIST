@@ -27,6 +27,24 @@
     render();
   };
 
+  const bindEvents = () => {
+    const taskDoneButton = document.querySelectorAll(".js-taskDone");
+
+    taskDoneButton.forEach((taskDoneButton, index) => {
+      taskDoneButton.addEventListener("click", () => {
+        doneTask(index);
+      });
+    });
+
+    const removeButton = document.querySelectorAll(".js-remove");
+
+    removeButton.forEach((removeButton, index) => {
+      removeButton.addEventListener("click", () => {
+        removeTask(index);
+      });
+    });
+  };
+
   const render = () => {
     let htmlString = "";
 
@@ -43,21 +61,7 @@
     const toDoList = document.querySelector(".js-toDoList");
     toDoList.innerHTML = htmlString;
 
-    const taskDoneButton = document.querySelectorAll(".js-taskDone");
-
-    taskDoneButton.forEach((taskDoneButton, index) => {
-      taskDoneButton.addEventListener("click", () => {
-        doneTask(index);
-      });
-    });
-
-    const removeButton = document.querySelectorAll(".js-remove");
-
-    removeButton.forEach((removeButton, index) => {
-      removeButton.addEventListener("click", () => {
-        removeTask(index);
-      });
-    });
+    bindEvents();
   };
 
   const onFormSubmit = (event) => {
