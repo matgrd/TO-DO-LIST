@@ -10,11 +10,20 @@
     },
   ];
 
+  const addFocus = () => {
+    document.querySelector(".js-newTask").focus();
+  };
+
+  const clearInput = () => {
+    document.querySelector(".js-newTask").value = "";
+  };
+
   const addNewTask = (newTaskContent) => {
     tasks.push({
       content: newTaskContent,
     });
     render();
+    clearInput();
   };
 
   const removeTask = (index) => {
@@ -27,7 +36,7 @@
     render();
   };
 
-  const bindEvents = () => {
+  const addEvents = () => {
     const taskDoneButton = document.querySelectorAll(".js-taskDone");
 
     taskDoneButton.forEach((taskDoneButton, index) => {
@@ -50,10 +59,10 @@
 
     for (const task of tasks) {
       htmlString += `
-          <li ${task.done ? 'style="text-decoration: line-through"' : ""}>
-          <button class="js-taskDone">✔</button>
-          <button class="js-remove">Usuń zadanie</button>  
-          ${task.content}
+          <li class="list__item ${task.done ? "list__item--done" : ""}">
+            <button class="js-taskDone">✔</button>
+            <button class="js-remove">Usuń zadanie</button>  
+              ${task.content}
           </li>
         `;
     }
@@ -61,7 +70,13 @@
     const toDoList = document.querySelector(".js-toDoList");
     toDoList.innerHTML = htmlString;
 
-    bindEvents();
+    addEvents();
+  };
+
+  const onFormFocus = () => {
+    const button = document.querySelector(".js-button");
+
+    button.addEventListener("click", addFocus);
   };
 
   const onFormSubmit = (event) => {
@@ -78,6 +93,7 @@
 
   const init = () => {
     render();
+    onFormFocus();
 
     const form = document.querySelector(".js-form");
 
