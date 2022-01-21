@@ -15,6 +15,9 @@
       referrerpolicy="no-referrer"
     />
     <link href="css/style.css" rel="stylesheet" />
+    <link href="css/section.css" rel="stylesheet" />
+    <link href="css/form.css" rel="stylesheet" />
+    <link href="css/list.css" rel="stylesheet" />
     <script defer src="js/script.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
@@ -23,17 +26,28 @@
   </head>
 
   <body class="body">
-    <div class="center">
-      <h1>Lista zadań</h1>
-      <form class="js-form">
-        <h2>Dodaj nowe zadanie</h2>
-        <p>
-          <input class="js-newTask" placeholder="Treść zadania" />
-        </p>
-        <button class="js-button">Dodaj zadanie</button>
-      </form>
-      <ul class="js-toDoList"></ul>
-      <div class="js-stats"></div>
-    </div>
+    <main class="container">
+      <h1 class="container__header">Lista zadań</h1>
+      <section class="section">
+        <h2 class="section__header">Dodaj nowe zadanie</h2>
+        <div class="section__content">
+          <form class="form js-form">
+            <p>
+              <input
+                class="form__input js-newTask"
+                placeholder="Treść zadania"
+              />
+            </p>
+            <button class="form__button js-button">Dodaj zadanie</button>
+          </form>
+        </div>
+      </section>
+      <section class="section">
+        <h2 class="section__header">Lista zadań</h2>
+        <div class="section__content">
+          <ul class="listTasks js-toDoList"></ul>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
