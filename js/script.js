@@ -26,30 +26,32 @@
     clearInput();
   };
 
-  const removeTask = (index) => {
-    tasks.splice(index, 1);
+  const removeTask = (taskIndex) => {
+    tasks.splice(taskIndex, 1);
     render();
   };
 
-  const doneTask = (index) => {
-    tasks[index].done = !tasks[index].done;
+  const toggleTaskDone = (taskIndex) => {
+    tasks[taskIndex].done = !tasks[taskIndex].done;
     render();
   };
 
-  const addEvents = () => {
+  const addToggleDoneEvents = () => {
     const taskDoneButton = document.querySelectorAll(".js-taskDone");
 
-    taskDoneButton.forEach((taskDoneButton, index) => {
+    taskDoneButton.forEach((taskDoneButton, taskIndex) => {
       taskDoneButton.addEventListener("click", () => {
-        doneTask(index);
+        toggleTaskDone(taskIndex);
       });
     });
+  };
 
+  const addRemoveEvents = () => {
     const removeButton = document.querySelectorAll(".js-remove");
 
-    removeButton.forEach((removeButton, index) => {
+    removeButton.forEach((removeButton, taskIndex) => {
       removeButton.addEventListener("click", () => {
-        removeTask(index);
+        removeTask(taskIndex);
       });
     });
   };
@@ -59,22 +61,30 @@
 
     for (const task of tasks) {
       htmlString += `
-          <li class="list__item ${task.done ? "list__item--done" : ""}">
-            <button class="js-taskDone">✔</button>
-            <button class="js-remove">Usuń zadanie</button>  
+          <li class="listTasks__item">
+            <button class="list__button js-taskDone">
+              ${task.done ? "✔" : ""}
+            </button> 
+            <span class="listTasks__content
+            ${task.done ? "listTasks__content--done" : ""}">
               ${task.content}
+            </span>
+            <button class="list__button list__button--remove js-remove">
+              ♻
+            </button> 
           </li>
         `;
     }
 
-    const toDoList = document.querySelector(".js-toDoList");
+    const toDoList = document.querySelector(".js-listTasks");
     toDoList.innerHTML = htmlString;
 
-    addEvents();
+    addRemoveEvents();
+    addToggleDoneEvents();
   };
 
   const onFormFocus = () => {
-    const button = document.querySelector(".js-button");
+    const button = document.querySelector(".js-formButton");
 
     button.addEventListener("click", addFocus);
   };
