@@ -37,6 +37,7 @@
 
 .list__button--remove {
     background-color: #ff0000;
+    font-size: 13px;
 }
 
 .list__button--remove:hover {

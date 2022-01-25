@@ -1,14 +1,5 @@
 {
-  const tasks = [
-    {
-      content: "zjeść kolację",
-      done: true,
-    },
-    {
-      content: "iść spać",
-      done: false,
-    },
-  ];
+  const tasks = [];
 
   const addFocus = () => {
     document.querySelector(".js-newTask").focus();
@@ -70,7 +61,7 @@
               ${task.content}
             </span>
             <button class="list__button list__button--remove js-remove">
-              ♻
+              🗑️
             </button> 
           </li>
         `;
