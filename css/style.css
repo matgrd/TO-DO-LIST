@@ -11,9 +11,3 @@ html {
     background-color: #eee;
     word-break: break-word;
 }
-
-.container {
-    margin: 0 auto;
-    max-width: 900px;
-    padding: 20px;
-}
