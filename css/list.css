@@ -1,43 +1,44 @@
 .listTasks {
     list-style-type: none;
-    padding: 0;
+    padding: 20px;
     margin: 0;
 }
 
 .listTasks__item {
     display: grid;
-    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-columns: auto 1fr auto;
     grid-auto-rows: minmax(50px, auto);
     grid-gap: 15px;
     align-items: center;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #ddd;
     padding: 10px;
 }
 
 .list__button {
-    justify-self: center;
     width: 30px;
     height: 30px;
-    background-color: #085f00;
     color: white;
     border: none;
-}
-
-.list__button:hover {
-    background-color: #0c9400;
-}
-
-.list__button:active {
-    background-color: hsl(115, 100%, 39%);
 }
 
 .listTasks__content--done {
     text-decoration: line-through;
 }
 
+.list__button--toggleDone {
+    background-color: #085f00;
+}
+
+.list__button--toggleDone:hover {
+    background-color: #0c9400;
+}
+
+.list__button--toggleDone:active {
+    background-color: hsl(115, 100%, 39%);
+}
+
 .list__button--remove {
     background-color: #ff0000;
-    font-size: 13px;
 }
 
 .list__button--remove:hover {
