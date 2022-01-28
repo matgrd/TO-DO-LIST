@@ -1,7 +1,7 @@
 {
   const tasks = [];
 
-  const addFocus = () => {
+  const focusOnInput = () => {
     document.querySelector(".js-newTask").focus();
   };
 
@@ -22,17 +22,18 @@
     render();
   };
 
-  const toggleTaskDone = (taskIndex) => {
+  const taskToggleDone = (taskIndex) => {
     tasks[taskIndex].done = !tasks[taskIndex].done;
     render();
   };
 
   const addToggleDoneEvents = () => {
-    const taskDoneButton = document.querySelectorAll(".js-taskDone");
+    const taskToggleDoneButton =
+      document.querySelectorAll(".js-taskToggleDone");
 
-    taskDoneButton.forEach((taskDoneButton, taskIndex) => {
-      taskDoneButton.addEventListener("click", () => {
-        toggleTaskDone(taskIndex);
+    taskToggleDoneButton.forEach((taskToggleDoneButton, taskIndex) => {
+      taskToggleDoneButton.addEventListener("click", () => {
+        taskToggleDone(taskIndex);
       });
     });
   };
@@ -53,7 +54,7 @@
     for (const task of tasks) {
       htmlString += `
           <li class="listTasks__item">
-            <button class="list__button js-taskDone">
+            <button class="list__button list__button--toggleDone js-taskToggleDone">
               ${task.done ? "✔" : ""}
             </button> 
             <span class="listTasks__content
@@ -61,7 +62,7 @@
               ${task.content}
             </span>
             <button class="list__button list__button--remove js-remove">
-              🗑️
+              🗑
             </button> 
           </li>
         `;
@@ -77,7 +78,7 @@
   const onFormFocus = () => {
     const button = document.querySelector(".js-formButton");
 
-    button.addEventListener("click", addFocus);
+    button.addEventListener("click", focusOnInput);
   };
 
   const onFormSubmit = (event) => {
