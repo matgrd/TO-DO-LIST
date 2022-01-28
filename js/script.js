@@ -49,10 +49,10 @@
   };
 
   const render = () => {
-    let htmlString = "";
+    let tasksListHTMLContent = "";
 
     for (const task of tasks) {
-      htmlString += `
+      tasksListHTMLContent += `
           <li class="listTasks__item">
             <button class="list__button list__button--toggleDone js-taskToggleDone">
               ${task.done ? "✔" : ""}
@@ -69,7 +69,7 @@
     }
 
     const toDoList = document.querySelector(".js-listTasks");
-    toDoList.innerHTML = htmlString;
+    toDoList.innerHTML = tasksListHTMLContent;
 
     addRemoveEvents();
     addToggleDoneEvents();
