@@ -1,8 +1,9 @@
 .form {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr auto;
     grid-gap: 15px;
     align-items: center;
+    padding: 20px;
 }
 
 @media (max-width: 767px) {
@@ -19,15 +20,15 @@
 
 .form__button {
     padding: 10px;
-    background-color: #053600;
+    background-color: #008080;
     color: white;
     border: none;
 }
 
 .form__button:hover {
-    background-color: #0b6b00;
+    background-color: #009999;
 }
 
 .form__button:active {
-    background-color: #109e00;
+    background-color: #00b3b3;
 }
