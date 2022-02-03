@@ -19,6 +19,7 @@
     height: 30px;
     color: white;
     border: none;
+    transition: 1s;
 }
 
 .listTasks__content--done {
@@ -34,7 +35,7 @@
 }
 
 .list__button--toggleDone:active {
-    background-color: hsl(115, 100%, 39%);
+    background-color: #11c700;
 }
 
 .list__button--remove {

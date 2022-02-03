@@ -22,10 +22,12 @@
     background-color: #008080;
     color: white;
     border: none;
+    transition: 1s;
 }
 
 .form__button:hover {
     background-color: #009999;
+    transform: scale(1.1);
 }
 
 .form__button:active {
