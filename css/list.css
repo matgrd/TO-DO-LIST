@@ -21,3 +21,36 @@
 .listTasks__content--done {
     text-decoration: line-through;
 }
+
+.list__button {
+    width: 30px;
+    height: 30px;
+    color: white;
+    border: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.list__button--toggleDone {
+    background-color: #085f00;
+}
+
+.list__button--toggleDone:hover {
+    background-color: #0c9400;
+}
+
+.list__button--toggleDone:active {
+    background-color: #11c700;
+}
+
+.list__button--remove {
+    background-color: #ff0000;
+}
+
+.list__button--remove:hover {
+    background-color: #ff3333;
+}
+
+.list__button--remove:active {
+    background-color: #ff6666;
+}
