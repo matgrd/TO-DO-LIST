@@ -14,12 +14,17 @@
     padding: 10px;
 }
 
+.listTasks__item--hidden {
+    display: none;
+}
+
 .list__button {
     width: 30px;
     height: 30px;
     color: white;
     border: none;
-    transition: 1s;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .listTasks__content--done {
